@@ -1,0 +1,8 @@
+LOg
+
+12 April 2013
+=============
+- Present cost and duration of project to client.
+- Review program flow and design.
+- Review database design.
+- Design user interface for the system.
