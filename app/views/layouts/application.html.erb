@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
-</body>
+	<div id='wrapper'>
+			<div id='header'>
+				<h1>Logo Company</h1>
+				<ul>
+					<li>Nav1</li>
+					<li>Nav2</li>
+					<li>Nav3</li>
+					<li>Nav4</li>
+				</ul>
+				<div class='clearfix'></div>
+			</div>
+			<div id='content'>
+				<p>
+					<%= yield %>
+				</p>
+			</div>
+			<div id='footer'>
+				<p>
+					&copy Company 2013
+				</p>
+			</div>
+		</div>
+	</body>
 </html>
