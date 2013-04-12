@@ -6,3 +6,5 @@ LOg
 - Review program flow and design.
 - Review database design.
 - Design user interface for the system.
+- Build a project repo in github.
+- Design a storyboard for all views.
