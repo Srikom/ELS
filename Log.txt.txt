@@ -8,3 +8,10 @@ LOg
 - Design user interface for the system.
 - Build a project repo in github.
 - Design a storyboard for all views.
+
+15 April 2013
+=============
+- Completed the Storyboard for Manager and Management View.(IAN)
+- Designed the second draft to the database design.(IAN)
+- Added two more tables that is crucial for report generation.
+- Establish the datatype and its limits for all of the tables attributes.
