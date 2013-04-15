@@ -15,3 +15,9 @@ LOg
 - Designed the second draft to the database design.(IAN)
 - Added two more tables that is crucial for report generation.
 - Establish the datatype and its limits for all of the tables attributes.
+
+16 April 2013
+=============
+- Integrate Ian management/manager view with Karen's Staff view to create the overall system main workflow.
+- Polish the design view for Yung's admin view and Karen' staff view.
+- Review Database design.

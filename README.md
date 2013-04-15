@@ -8,3 +8,6 @@ Project End Date : 9 May 2013
 Total Project Days : 22 days (Excluding Saturday and Sunday)
 Project Overall Budget : RM 7100++
 
+UPDATE
+======
+Project due : 18 days
