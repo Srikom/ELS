@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  staff_id: 1
+  manager_id: 1
+  management_id: 1
+  start_date: 2013-04-17
+  end_date: 2013-04-17
+  reason: MyText
+  status: MyString
+  comment: MyText
+
+two:
+  staff_id: 1
+  manager_id: 1
+  management_id: 1
+  start_date: 2013-04-17
+  end_date: 2013-04-17
+  reason: MyText
+  status: MyString
+  comment: MyText
