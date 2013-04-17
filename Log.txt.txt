@@ -24,3 +24,10 @@ LOg
 - Configure github settings on all team.
 - Finalize all documents for client and manager presentation.
 - Done with the Story board which includes the Admin, Staff, Management, Manager and Workflow of system.
+
+17 April 2013
+=============
+- Change the database structure
+- Added new Admin functionalities (Manager & Management Assignment)
+- Did progress presentation.Was asked to add a few things.Archiving,
+- Allowed to proceed with coding.
