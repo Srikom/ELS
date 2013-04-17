@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  management_name: MyString
+  management_phone: MyString
+  management_email: MyString
+  management_password: MyString
+
+two:
+  management_name: MyString
+  management_phone: MyString
+  management_email: MyString
+  management_password: MyString
