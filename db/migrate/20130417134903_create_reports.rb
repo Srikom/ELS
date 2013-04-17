@@ -1,9 +1,9 @@
 class CreateReports < ActiveRecord::Migration
   def change
     create_table :reports do |t|
-      t.string :report_name
-      t.string :report_month
-      t.integer :report_year
+      t.string :report_name, null: false
+      t.string :report_month, null: false
+      t.integer :report_year, null: false
 
       t.timestamps
     end

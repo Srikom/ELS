@@ -33,10 +33,10 @@ class AddDeviseToManagers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
-      t.string :manager_name
-      t.string :manager_phone
-      t.integer :department_id
-      t.boolean :admin
+      t.string :manager_name, null: false
+      t.string :manager_phone, null: false
+      t.integer :department_id, null: false
+      t.boolean :admin, default: false
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps

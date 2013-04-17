@@ -33,10 +33,10 @@ class AddDeviseToStaffs < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
-      t.string :staff_phone
-      t.integer :department_id
-      t.string :leave_balance
-      t.string :staff_name
+      t.string :staff_phone,null: false
+      t.integer :department_id, null: false
+      t.string :leave_balance, null: false
+      t.string :staff_name, null: false
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps
