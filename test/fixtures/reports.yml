@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  report_name: MyString
+  report_month: MyString
+  report_year: 1
+
+two:
+  report_name: MyString
+  report_month: MyString
+  report_year: 1
