@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418002053) do
+ActiveRecord::Schema.define(:version => 20130418011953) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",              :default => "", :null => false
@@ -33,32 +33,31 @@ ActiveRecord::Schema.define(:version => 20130418002053) do
     t.date     "start_date",                                                 :null => false
     t.date     "end_date",                                                   :null => false
     t.text     "reason",                                                     :null => false
-    t.string   "status",        :default => "Not Submitted"
-    t.text     "comment",       :default => "Application has not Submitted"
+    t.string   "status",        :default => "Not Submitted",                 :null => false
+    t.string   "comment",       :default => "Application has not submitted", :null => false
     t.datetime "created_at",                                                 :null => false
     t.datetime "updated_at",                                                 :null => false
+    t.integer  "report_id"
   end
 
   create_table "managements", :force => true do |t|
     t.string   "email",              :default => "", :null => false
     t.string   "encrypted_password", :default => "", :null => false
-    t.string   "management_name"
-    t.string   "management_phone"
-    t.string   "management_email"
+    t.string   "management_name",                    :null => false
+    t.string   "management_phone",                   :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
   end
 
   create_table "managers", :force => true do |t|
-    t.string   "email",              :default => "", :null => false
-    t.string   "encrypted_password", :default => "", :null => false
-    t.string   "manager_name"
-    t.string   "manager_phone"
-    t.string   "manager_email"
-    t.integer  "department_id"
-    t.boolean  "admin"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "email",              :default => "",    :null => false
+    t.string   "encrypted_password", :default => "",    :null => false
+    t.string   "manager_name",                          :null => false
+    t.string   "manager_phone",                         :null => false
+    t.integer  "department_id",                         :null => false
+    t.boolean  "admin",              :default => false, :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "reports", :force => true do |t|
@@ -72,11 +71,10 @@ ActiveRecord::Schema.define(:version => 20130418002053) do
   create_table "staffs", :force => true do |t|
     t.string   "email",              :default => "", :null => false
     t.string   "encrypted_password", :default => "", :null => false
-    t.string   "staff_name"
-    t.string   "staff_phone"
-    t.string   "staff_email"
-    t.integer  "department_id"
-    t.integer  "leave_balance"
+    t.string   "staff_name",                         :null => false
+    t.string   "staff_phone",                        :null => false
+    t.integer  "department_id",                      :null => false
+    t.integer  "leave_balance",                      :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
   end
