@@ -1,6 +1,6 @@
-<h2>Administration Sign in Page</h2>
+<h2>Staff Sign in</h2>
 
-<div id='admin_login'>
+<div id='staff_login'>
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 	  <div><%= f.label :email %><br />
 	  <%= f.email_field :email, :autofocus => true %></div>
@@ -11,5 +11,4 @@
 	  <div><input type='reset'/><%= f.submit "Sign in" %></div>
 	<% end %>
 </div>
-
 

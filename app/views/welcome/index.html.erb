@@ -1,2 +1,7 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to Employee Leave System</h1>
+<div id='welcome'>
+<p> 
+	This system compromises of 4 Users, there are the Administration, Staff, Manager and Management. The aim of this system is to management the staff leave application. The staff is able to create a leave application and submit it to the system for the approval of his/her Manager based on the applicants department. After the approval of the Manager, the application will be received by the Management to finalize the application. The staff can checked the status of their application from time to time in the system. Click <b><%= link_to 'Staff', new_staff_session_path %></b> if you are a staff, click <b>Manager</b> if you are Manager, click <b>Management</b> if you are one of the Management team and click <b><%= link_to 'Administrater', new_admin_session_path %></b> if you are an Admin. All of the links will direct you to its respective Login Page.
+</p>
+</div>
+

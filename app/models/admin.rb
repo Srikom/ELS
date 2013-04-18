@@ -1,6 +1,4 @@
 class Admin < ActiveRecord::Base
-  
-  devise :database_authenticatable,:validatable
-  attr_accessible :email, :password
- 
+  devise :database_authenticatable, :trackable, :timeoutable, :lockable  
+  attr_accessible :email, :password, :password_confirmation
 end

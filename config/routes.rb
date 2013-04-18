@@ -1,5 +1,8 @@
 ELS::Application.routes.draw do
 
+  resources :staff_panel
+  resources :admin_panel
+
   devise_for :admins
 
   devise_for :managements

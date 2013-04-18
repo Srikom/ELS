@@ -8,16 +8,29 @@
 </head>
 <body>
 	<div id='wrapper'>
-			<div id='header'>
-				<h1>Logo Company</h1>
-				<ul>
-					<li>Nav1</li>
-					<li>Nav2</li>
-					<li>Nav3</li>
-					<li>Nav4</li>
-				</ul>
-				<div class='clearfix'></div>
-			</div>
+			
+				<div id='header'>
+					<h1>Employee Leave System</h1>
+					<% if staff_signed_in? %>
+						<ul>
+							<li>Home |</li>
+							<li>Add Application |</li>
+							<li>Application Archive |</li>
+							<li>View Profile |</li>
+							<li>Leave balance : <%= current_staff.leave_balance %> |</li>
+							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
+						</ul>
+						<% elsif admin_signed_in? %>
+						<ul>
+							<li>Home |</li>
+							<li>Assign Application to Manager |</li>
+							<li>Assign Application to Management |</li>
+							<li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
+						</ul>
+					<% end %>
+					<div class='clearfix'></div>
+				</div>
+			
 			<div id='content'>
 				<p>
 					<%= yield %>
