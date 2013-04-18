@@ -53,3 +53,11 @@ body
 {
 	text-align: center;
 }
+
+#admin_login
+{
+	width: 250px;
+	margin: 0px auto;
+	border: 2px solid #000;
+	padding: 10px;
+}
