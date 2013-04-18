@@ -35,3 +35,5 @@ LOg
 18 April 2013
 =============
 - Successfully created the Staff,Manager,Management and Admin model by using devise plugin.
+- Created the login page for all users
+- Added some dummy users
