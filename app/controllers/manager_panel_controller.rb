@@ -1,0 +1,2 @@
+class ManagerPanelController < ApplicationController
+end
