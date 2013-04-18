@@ -2,6 +2,8 @@ ELS::Application.routes.draw do
 
   resources :staff_panel
   resources :admin_panel
+  resources :manager_panel
+  resources :management_panel
 
   devise_for :admins
 
@@ -11,7 +13,6 @@ ELS::Application.routes.draw do
 
   devise_for :staffs
 
-  get "welcome/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,7 +63,10 @@ ELS::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'welcome#index'
+
+  devise_scope :staff do
+    root to: "devise/sessions#new"
+  end
 
   # See how all your routes lay out with "rake routes"
 
