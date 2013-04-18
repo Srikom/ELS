@@ -1,5 +1,13 @@
 ELS::Application.routes.draw do
 
+  devise_for :admins
+
+  devise_for :managements
+
+  devise_for :managers
+
+  devise_for :staffs
+
   get "welcome/index"
 
   # The priority is based upon order of creation:

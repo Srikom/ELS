@@ -31,3 +31,7 @@ LOg
 - Added new Admin functionalities (Manager & Management Assignment)
 - Did progress presentation.Was asked to add a few things.Archiving,
 - Allowed to proceed with coding.
+
+18 April 2013
+=============
+- Successfully created the Staff,Manager,Management and Admin model by using devise plugin.
