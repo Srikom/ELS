@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
     		elsif resource.is_a?(Admin)
       			admin_panel_index_path
       		elsif resource.is_a?(Manager)
-      			super
+      			manager_panel_index_path
       		elsif resource.is_a?(Management)
-      			super
+      			management_panel_index_path
     		end
 	end
 
 	def after_sign_out_path_for(resource_or_scope)
-  		welcome_index_path
-	end
-
+            new_staff_session_path
+  end
+  
 end
