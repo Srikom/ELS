@@ -80,8 +80,19 @@ body
 	text-align: justify;
 }
 
-#header
+#header,#footer
 {
 	background-color: #332929;
 	color: #fff;
+}
+
+#footer
+{
+	font-style: italic;
+	font-size: 13px;
+}
+
+#acc
+{
+	padding: 5px;
 }
