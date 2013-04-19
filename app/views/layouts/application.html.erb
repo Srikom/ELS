@@ -8,39 +8,38 @@
 </head>
 <body>
 	<div id='wrapper'>
-			
 				<div id='header'>
 					<h1>Employee Leave System</h1>
 						<% if staff_signed_in? %>
 						<ul>
-							<li>Home |</li>
-							<li>Add Application |</li>
-							<li>Application Archive |</li>
-							<li>View Profile |</li>
+							<li><%= link_to 'Home' %> |</li>
+							<li><%= link_to 'Add Application' %> |</li>
+							<li><%= link_to 'Application Archive' %> |</li>
+							<li><%= link_to 'View Profile' %> |</li>
 							<li>Leave balance : <%= current_staff.leave_balance %> |</li>
 							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
 						</ul>
 						<% elsif admin_signed_in? %>
 						<ul>
-							<li>Home |</li>
-							<li>Assign Application to Manager |</li>
-							<li>Assign Application to Management |</li>
+							<li><%= link_to 'Home' %> |</li>
+							<li><%= link_to 'Assign Application to Manager' %> |</li>
+							<li><%= link_to 'Assign Application to Management' %> |</li>
 							<li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
 						</ul>
 						<% elsif manager_signed_in? %>
 						<ul>
-							<li>Home |</li>
-							<li>Application Archive |</li>
-							<li>Report |</li>
-							<li>View Profile |</li>
+							<li><%= link_to 'Home' %> |</li>
+							<li><%= link_to 'Application Archive' %> |</li>
+							<li><%= link_to 'Report' %> |</li>
+							<li><%= link_to 'View Profile' %> |</li>
 							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
 						</ul>
 						<% elsif management_signed_in? %>
 						<ul>
-							<li>Home |</li>
-							<li>Application Archive |</li>
-							<li>Report |</li>
-							<li>View Profile |</li>
+							<li><%= link_to 'Home' %> |</li>
+							<li><%= link_to 'Application Archive' %> |</li>
+							<li><%= link_to 'Report' %> |</li>
+							<li><%= link_to 'View Profile' %> |</li>
 							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
 						</ul>
 					<% end %>
@@ -48,6 +47,11 @@
 				</div>
 			
 			<div id='content'>
+				<center>
+					<% flash.each do |key,msg|%>
+						<%= content_tag :div, msg, id:key %>
+					<% end %>
+				</center>
 				<p>
 					<%= yield %>
 				</p>
