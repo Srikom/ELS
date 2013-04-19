@@ -1,4 +1,55 @@
+<center>
 <div id='staffApplication'>
 
-<%=  @leaveApplication.staff_name %>
+<% @leaveApplication.each do |l| %>
+	<table>
+		<tr>
+			<td><b>Name :</b></td>
+			<td><%= l.staff_name %></td>
+		</tr>
+		<tr>
+			<td><b>Department :</b></td>
+			<td><%= l.department_name %></td>
+		</tr>
+		<tr>
+			<td><b>Date of Application Submission :</b></td>
+			<td><%= l.updated_at.strftime('%d/%m/%Y') %></td>
+		</tr>
+		<tr>
+			<td><b>Reason of Leave :</b></td>
+			<td><%= l.reason %></td>
+		</tr>
+		<tr>
+			<td><b>Date of Start Leave :</b></td>
+			<td><%= l.start_date %></td>
+		</tr>
+		<tr>
+			<td><b>Date of End Leave :</b></td>
+			<td><%= l.end_date %></td>
+		</tr>
+		<tr>
+			<td><b>Total days of leave :</b></td>
+			<td><%= l.leave_balance %></td>
+		</tr>
+		<tr>
+			<td><b>Leave Balance :</b></td>
+			<td><%= l.leave_balance %></td>
+		</tr>
+		<tr>
+			<td><b>Application Status :</b></td>
+			<td><%= l.status %></td>
+		</tr>
+		<tr>
+			<td><b>Comments :</b></td>
+			<td><%= l.comment %></td>
+		</tr>
+	</table>
+<% end %>
+	<div>
+		<%= form_for(@review, :url => {:controller => "manager_panel", :action => "updateReview"}) do |f| %>
+			<%= f.select :status, [['Approve','Approved By Manager'],['Reject','Rejected']] %>
+    <%= f.submit "Continue" %>
+<% end %>
+	</div>
 </div>
+</center>

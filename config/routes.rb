@@ -4,6 +4,7 @@ ELS::Application.routes.draw do
   resources :admin_panel
   resources :manager_panel do
     get :showApplication, on: :member
+    put :updateReview, on: :member
   end
   resources :management_panel
 

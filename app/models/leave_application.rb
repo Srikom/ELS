@@ -12,11 +12,11 @@ class LeaveApplication < ActiveRecord::Base
 
 
   def self.myDepartment(manager)
-  	select('leave_applications.id,staff_name,department_name,leave_applications.created_at,status').joins(:staff => :department).where(manager_id:manager)
+  	select('leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status').joins(:staff => :department).where(manager_id:manager)
   end
 
-  def self.appDetails(staff)
-  	select('*').joins(:staff => :department).where(staff_id:staff)
+  def self.appDetails(application)
+  	select('*').joins(:staff => :department).where(id:application)
   end
 
 end
