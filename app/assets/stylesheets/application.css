@@ -148,3 +148,12 @@ th
 	background-color:#3790e8;
 	color:white;
 }
+
+#staffApplication
+{
+	padding: 5px;
+	border: 1px solid #000;
+	width: 500px;
+	border-radius: 10px;
+	background-color: #d8dff2;
+}

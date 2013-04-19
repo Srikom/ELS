@@ -4,7 +4,10 @@ class ManagerPanelController < ApplicationController
 
 	def index
 		@leaveApplication = LeaveApplication.myDepartment(current_manager)
-		
 	end
+
+	def showApplication
+		@leaveApplication = LeaveApplication.appDetails(params[:id])
+	end 
 
 end

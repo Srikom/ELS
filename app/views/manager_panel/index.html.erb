@@ -13,7 +13,7 @@
 		</tr>
 		<% @leaveApplication.each do |l| %>
 			<tr>
-				<td><%= l.staff_id %></td>
+				<td><%= link_to l.id, showApplication_manager_panel_path(l.id) %></td>
 				<td><%= l.staff_name %></td>
 				<td><%= l.department_name %></td>
 				<td><%= l.created_at.strftime('%d/%m/%Y') %></td>
