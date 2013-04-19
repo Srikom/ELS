@@ -5,7 +5,6 @@
 <div>
 	<table size='100%' id='managerTable'>
 		<tr>
-			<th>No.</th>
 			<th>ID</th>
 			<th>Name</th>
 			<th>Department</th>
@@ -14,10 +13,9 @@
 		</tr>
 		<% @leaveApplication.each do |l| %>
 			<tr>
-				<td>KIV</td>
 				<td><%= l.staff_id %></td>
-				<td>KIV</td>
-				<td>KIV</td>
+				<td><%= l.staff_name %></td>
+				<td><%= l.department_name %></td>
 				<td><%= l.created_at.strftime('%d/%m/%Y') %></td>
 				<td><%= l.status %></td>
 			</tr>

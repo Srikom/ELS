@@ -10,8 +10,9 @@ class LeaveApplication < ActiveRecord::Base
   belongs_to :management
   belongs_to :report 
 
+
   def self.myDepartment(manager)
-  	where(manager_id: manager)
+  	LeaveApplication.select('staff_id,staff_name,department_name,leave_applications.created_at,status').joins(:staff => :department).where(manager_id:manager)
   end
 
 end

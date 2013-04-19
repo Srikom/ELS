@@ -8,5 +8,4 @@ class Staff < ActiveRecord::Base
   has_many :leave_applications
   belongs_to :department
 
-
 end
