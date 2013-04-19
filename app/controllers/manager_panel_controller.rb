@@ -4,6 +4,7 @@ class ManagerPanelController < ApplicationController
 
 	def index
 		@leaveApplication = LeaveApplication.myDepartment(current_manager)
+		
 	end
 
 end
