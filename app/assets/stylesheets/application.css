@@ -52,12 +52,11 @@ body
 #header a
 {
 	text-decoration: none;
-	color: #fff;
+	color: #00d5f2;
 }
 
 #header li a:hover
 {
-
 	background-color:#5970e9;
 }
 
