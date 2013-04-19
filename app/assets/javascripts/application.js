@@ -16,6 +16,6 @@
 
 $(function(){
 
-	$('#notice').fadeOut(2000);
-	$('#alert').fadeOut(2000);
+	$('#notice').fadeOut(1000);
+	$('#alert').fadeOut(1000);
 })
