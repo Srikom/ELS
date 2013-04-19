@@ -3,10 +3,15 @@ class LeaveApplication < ActiveRecord::Base
 
   validates :start_date, :end_date, :reason, presence: true
   
-  scope :myDepartment , where(manager_id:2)
+
 
   belongs_to :staff
   belongs_to :manager
   belongs_to :management
   belongs_to :report 
+
+  def self.myDepartment(manager)
+  	where(manager_id: manager)
+  end
+
 end

@@ -1,25 +1,27 @@
 <h2>Welcome to Manager Panel</h2>
 <p>Welcome, <%= current_manager.manager_name %>. Page is still under construction.</p>
 
+<center>
 <div>
-	<table size='100%'>
-		<th>
-			<td>No.</td>
-			<td>ID</td>
-			<td>Name</td>
-			<td>Department</td>
-			<td>Date Of Submission</td>
-			<td>Status</td>
-		</th>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>No.</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Department</th>
+			<th>Date Of Submission</th>
+			<th>Status</th>
+		</tr>
 		<% @leaveApplication.each do |l| %>
 			<tr>
 				<td>KIV</td>
 				<td><%= l.staff_id %></td>
 				<td>KIV</td>
 				<td>KIV</td>
-				<td><%= l.created_at %></td>
+				<td><%= l.created_at.strftime('%d/%m/%Y') %></td>
 				<td><%= l.status %></td>
 			</tr>
 		<% end %>
 	</table>
 </div>
+</center>
