@@ -15,7 +15,7 @@
 							<li><%= link_to 'Home' %> |</li>
 							<li><%= link_to 'Add Application' %> |</li>
 							<li><%= link_to 'Application Archive' %> |</li>
-							<li><%= link_to 'View Profile' %> |</li>
+							<li><%= link_to 'View Profile',view_profile_staff_panel_path %> |</li>
 							<li>Leave balance : <%= current_staff.leave_balance %> |</li>
 							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
 						</ul>
@@ -28,7 +28,7 @@
 						</ul>
 						<% elsif manager_signed_in? %>
 						<ul>
-							<li><%= link_to 'Home',manager_panel_index_path %> |</li>
+							<li><%= link_to 'Home' %> |</li>
 							<li><%= link_to 'Application Archive' %> |</li>
 							<li><%= link_to 'Report' %> |</li>
 							<li><%= link_to 'View Profile' %> |</li>

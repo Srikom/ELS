@@ -1,6 +1,7 @@
 ELS::Application.routes.draw do
 
   resources :staff_panel
+  
   resources :admin_panel
   resources :manager_panel do
     get :showApplication, on: :member
