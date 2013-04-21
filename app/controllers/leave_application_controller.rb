@@ -6,7 +6,7 @@ class LeaveApplicationController < ApplicationController
 
 	end
 def view_profile
-		@leaveApplication = LeaveApplication.find(params[:id])
+		@leaveApplication = LeaveApplication.appDetails(params[:id])
 		redirect_to view_profile_staff_panel_path(params[:id])
 	end
 	def new

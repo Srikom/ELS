@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>ELS</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application" ,"jquery-ui"%>
+  <%= javascript_include_tag "application" ,"calendar","jquery-1.9.1","jquery.ui.core","jquery.ui.widget","jquery.ui.datepicker" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,10 +12,10 @@
 					<h1>Employee Leave System</h1>
 						<% if staff_signed_in? %>
 						<ul>
-							<li><%= link_to 'Home' %> |</li>
-							<li><%= link_to 'Add Application' %> |</li>
+							<li><%= link_to 'Home',index_path %> |</li>
+							<li><%= link_to 'Add Application',_form_path %> |</li>
 							<li><%= link_to 'Application Archive' %> |</li>
-							<li><%= link_to 'View Profile',view_profile_staff_panel_path %> |</li>
+							<li><%= link_to 'View Profile',profile_path%> |</li>
 							<li>Leave balance : <%= current_staff.leave_balance %> |</li>
 							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
 						</ul>

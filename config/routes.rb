@@ -1,7 +1,10 @@
 ELS::Application.routes.draw do
 
   resources :staff_panel
-  
+  #match 'view_profile', to: 'staff_panel#view_profile'
+  match '/index', :controller => "staff_panel", :action => "index"
+ match '/profile', :controller => "staff_panel", :action => "profile"
+ match '/_form', :controller => "staff_panel", :action => "_form"
   resources :admin_panel
   resources :manager_panel do
     get :showApplication, on: :member
@@ -12,8 +15,8 @@ ELS::Application.routes.draw do
   devise_for :admins
 
   devise_for :managements
-
   devise_for :managers
+
 
   devise_for :staffs
 
