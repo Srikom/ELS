@@ -21,7 +21,7 @@
 						</ul>
 						<% elsif admin_signed_in? %>
 						<ul>
-							<li><%= link_to 'Home' %> |</li>
+							<li><%= link_to 'Home', admin_panel_index_path %> |</li>
 							<li><%= link_to 'Assign Application to Manager' %> |</li>
 							<li><%= link_to 'Assign Application to Management' %> |</li>
 							<li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
