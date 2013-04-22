@@ -22,4 +22,11 @@ class LeaveApplication < ActiveRecord::Base
       select("leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status").joins(:staff => :department).where("status = ? OR status = ? OR status = ? AND manager_id = ? AND department_id = ?",'Rejected','Approved','Approved By Manager',manager,department)
   end
 
+  def self.search(search,manager,department)
+    if search
+      select("leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status").joins(:staff => :department).where("status = ? AND manager_id = ? AND department_id = ?",search,manager,department)
+    else
+      reviewedApplication(manager,department)
+    end
+  end
 end

@@ -17,7 +17,6 @@ ELS::Application.routes.draw do
     get :showApplication, on: :member
     put :updateReview, on: :member
     get :applicationArchive, on: :collection
-    get :filterReviewedApplication
   end
   resources :management_panel
 
