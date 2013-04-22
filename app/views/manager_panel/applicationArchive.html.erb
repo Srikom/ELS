@@ -1,14 +1,16 @@
 <h1>Leave Application Archive</h1>
 
 <p>This section displays all the leave application which has been reviewed before.</p>
-
+<center>
 <div>
 	<%= form_tag applicationArchive_manager_panel_index_path,method: :get do %>
-		<p><%= select_tag :search, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Filter Status','null']],selected:"null") %>
+		<p>Filter : <%= select_tag :search, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Filter Status','null']],selected:"null") %>
 			<%= submit_tag "Search"%></p>
 	<% end %>
 </div>
-<center>
+
+
+<% if !@reviewedApplication.nil? %>
 <div>
 	<table size='100%' id='managerTable'>
 		<tr>
@@ -29,4 +31,5 @@
 		<% end %>
 	</table>
 </div>	
+<% end %>
 </center>

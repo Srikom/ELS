@@ -30,7 +30,13 @@ class ManagerPanelController < ApplicationController
 	end
 
 	def applicationArchive
-		@reviewedApplication = LeaveApplication.search(params[:search],current_manager,current_manager.department_id)
+
+		if params[:search] == "null"
+			@reviewedApplication = LeaveApplication.reviewedApplication(current_manager,current_manager.department_id)
+			flash[:alert] = "Please select one of the filter status options!"
+		else
+			@reviewedApplication = LeaveApplication.search(params[:search],current_manager,current_manager.department_id)
+		end
 	end
 
 end
