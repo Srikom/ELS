@@ -12,6 +12,7 @@
 			<th>Status</th>
 		</tr>
 		<% @leaveApplication.each do |l| %>
+		<% if l.status == "Pending" %>
 			<tr>
 				<td><%= link_to l.id, showApplication_manager_panel_path(l.id) %></td>
 				<td><%= l.staff_name %></td>
@@ -19,6 +20,7 @@
 				<td><%= l.created_at.strftime('%d/%m/%Y') %></td>
 				<td><%= l.status %></td>
 			</tr>
+		<% end %>
 		<% end %>
 	</table>
 </div>

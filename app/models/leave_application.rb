@@ -17,7 +17,7 @@ class LeaveApplication < ActiveRecord::Base
   end
 
   def self.appDetails(application)
-  	select("*,strftime('%d',end_date) - strftime('%d',start_date) AS date_diff").joins(:staff => :department).where(id:application)
+  	select("*,(julianday(end_date)-julianday(start_date)) AS date_diff").joins(:staff => :department).where(id:application)
   end 
 
 end
