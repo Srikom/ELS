@@ -8,9 +8,15 @@ class AdminPanelController < ApplicationController
 		@managements = Management.all
 	end
 
-	def show
+	def showManager
 		@managers = Manager.find(params[:id])
+	end
+
+	def showStaff
 		@staffs = Staff.find(params[:id])
+	end
+
+	def showManagement
 		@managements = Management.find(params[:id])
 	end
 
