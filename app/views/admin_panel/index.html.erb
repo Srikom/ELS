@@ -1,47 +1,42 @@
 <h1>Welcome to the admins panel</h1>
 <p>Page is still under construction</p>
 
+<center>	
 <table>
+
 <tr>
-	<th>No.</th>
 	<th>ID</th>
 	<th>Name</th>
 	<th>Department</th>
 	<th>Role</th>
 </tr>
 
-
 <% @managers.each do |f| %>
 <tr>
-<td></td>
-<td><%= f.id %></td>
+<td><%= link_to f.id, showManager_admin_panel_path(f.id) %></td>
 <td><%= f.manager_name %></td>
-<td><%= f.department_id %></td>
+<td><center><%= f.department_id %></center></td>
 <td>Manager</td>
 </tr>
 <% end %>
 
 <% @staffs.each do |f| %>
 <tr>
-<td></td>
-<td><%= f.id %></td>
+<td><%= link_to f.id, showStaff_admin_panel_path(f.id) %></td>
 <td><%= f.staff_name %></td>
-<td><%= f.department_id %></td>
+<td><center><%= f.department_id %></center></td>
 <td>Employee</td>
 </tr>
 <% end %>
 
 <% @managements.each do |f| %>
 <tr>
-<td></td>
-<td><%= f.id %></td>
+<td><%= link_to f.id, showManagement_admin_panel_path(f.id) %></td>
 <td><%= f.management_name %></td>
-<td></td>
+<td><center>-</center></td>
 <td>Management</td>
 </tr>
 <% end %>
 
-
-
-
 </table>
+</center>
