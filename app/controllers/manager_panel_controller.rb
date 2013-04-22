@@ -41,6 +41,14 @@ class ManagerPanelController < ApplicationController
 
 	def report
 		@report = Report.all
+		@leaveApp = LeaveApplication.all
+		@leaveApp.each do |l| 
+			LeaveApplication.leaveApplicationReportEntry(l.start_date.strftime('%B'),l.start_date.strftime('%Y'),l.id)
+		end
+	end
+
+	def showReport
+		
 	end
 
 end

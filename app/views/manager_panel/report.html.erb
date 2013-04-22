@@ -4,7 +4,8 @@
 <center>
 <div>
 	<%= form_tag report_manager_panel_index_path,method: :get do %>
-		<p>Filter : <%= select_tag :search, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Filter Status','null']],selected:"null") %>
+		<p>Month : <%= select_tag :month, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Month','null']],selected:"null") %>
+			Year : <%= select_tag :year, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Year','null']],selected:"null") %>
 			<%= submit_tag "Filter"%></p>
 	<% end %>
 </div>
@@ -21,7 +22,7 @@
 		<% @report.each do |r| %>
 			<tr>
 				<td><%= r.id %></td>
-				<td><%= r.report_name %></td>
+				<td><%= link_to r.report_name, showReport_manager_panel_path(r.id) %></td>
 				<td><%= r.updated_at.strftime('%d/%m/%Y') %></td>
 			</tr>
 		<% end %>

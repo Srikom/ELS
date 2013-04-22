@@ -20,6 +20,7 @@ ELS::Application.routes.draw do
     put :updateReview, on: :member
     get :applicationArchive, on: :collection
     get :report, on: :collection
+    get :showReport, on: :member
   end
   resources :management_panel
 

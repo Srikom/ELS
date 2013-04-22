@@ -1,5 +1,5 @@
 class LeaveApplication < ActiveRecord::Base
-  attr_accessible :comment, :end_date, :management_id, :manager_id, :reason, :staff_id, :start_date, :status
+  attr_accessible :comment, :end_date, :management_id, :manager_id, :reason, :staff_id, :start_date, :status, :report_id
 
   validates :start_date, :end_date, :reason, presence: true
   
@@ -29,4 +29,21 @@ class LeaveApplication < ActiveRecord::Base
       reviewedApplication(manager,department)
     end
   end
+
+  def self.leaveApplicationReportEntry(month,year,application)
+    if Report.getReport(month,year).exists?
+      lApp = LeaveApplication.find(application)
+      lApp.update_attributes(report_id: Report.getReport(month,year))
+    elsif !Report.getReport(month,year).exists?
+      lAppReport = Report.new
+      lAppReport.report_month = "#{month} Report #{year}"
+      lAppReport.report_month = month
+      lAppReport.report_year =  year
+      if lAppReport.save!
+        lApp = LeaveApplication.find(application)
+        lApp.update_attributes(report_id:lAppReport.id)
+      end 
+    end
+  end
+
 end
