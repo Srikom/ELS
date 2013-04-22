@@ -30,7 +30,7 @@ class ManagerPanelController < ApplicationController
 	end
 
 	def applicationArchive
-		@reviewedApplication = LeaveApplication.reviewedApplication
+		@reviewedApplication = LeaveApplication.reviewedApplication(current_manager,current_manager.department_id)
 	end
 
 	def filterReviewedApplication
