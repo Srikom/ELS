@@ -5,6 +5,7 @@ ELS::Application.routes.draw do
   match '/index', :controller => "staff_panel", :action => "index"
  match '/profile', :controller => "staff_panel", :action => "profile"
  match '/_form', :controller => "staff_panel", :action => "_form"
+ match '/archive', :controller => "staff_panel", :action => "archive"
   resources :admin_panel
   resources :manager_panel do
     get :showApplication, on: :member

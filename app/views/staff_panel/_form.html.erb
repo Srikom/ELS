@@ -1,3 +1,12 @@
+<% if flash[:alert] %>
+<p id="notice"><%= flash[:alert] %></p>
+<% end %>
+<% form_tag do %>
+	<%= hidden_field_tag 'name', params[:start_date]%>
+	<%= hidden_field_tag 'password', params[:end_date]%>
+	<%= hidden_field_tag 'password', params[:reason]%>
+<% end %>
+<%= form_tag  do %>
 <div class="form_text_box">
         Start Date:<%= text_field 'leave_application', 'start_date' %>
         End Date:<%= text_field 'leave_application', 'end_date' %>
@@ -7,4 +16,5 @@
         <%= text_area 'leave_application', 'reason' %>
       </div>
  
- <%= submit_tag 'Submit',:confirm => 'Are you sure?'%>
+ <%= submit_tag 'Submit',:confirm => 'Are you sure?',:action=>'_form_path',:alert=>"Your submission form will be processed!"%>
+ <%end%>
