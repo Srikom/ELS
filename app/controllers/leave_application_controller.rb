@@ -5,10 +5,15 @@ class LeaveApplicationController < ApplicationController
 	def index
 
 	end
-def view_profile
-		@leaveApplication = LeaveApplication.appDetails(params[:id])
+	 def show_application
+   @leaveApplication=LeaveApplication.find(params[:id])
+ end
+	def view_profile
+		@leaveapplication = LeaveApplication.find(params[:id])
 		redirect_to view_profile_staff_panel_path(params[:id])
 	end
+	def show
+   		@leaveapplication = Zombie.find(params[:id])
 	def new
 		@leaveapplication=LeaveApplication.new
 	end

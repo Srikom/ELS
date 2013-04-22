@@ -1,7 +1,9 @@
 ELS::Application.routes.draw do
 
-  resources :staff_panel
+  resources :staff_panel,:controller => "leave_application"
   #match 'view_profile', to: 'staff_panel#view_profile'
+  
+  
   match '/index', :controller => "staff_panel", :action => "index"
  match '/profile', :controller => "staff_panel", :action => "profile"
  match '/_form', :controller => "staff_panel", :action => "_form"
