@@ -39,4 +39,8 @@ class ManagerPanelController < ApplicationController
 		end
 	end
 
+	def report
+		@report = Report.all
+	end
+
 end

@@ -3,9 +3,9 @@
 one:
   report_name: MyString
   report_month: MyString
-  report_year: 1
+  report_year: MyString
 
 two:
   report_name: MyString
   report_month: MyString
-  report_year: 1
+  report_year: MyString

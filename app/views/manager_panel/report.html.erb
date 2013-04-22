@@ -1,0 +1,31 @@
+<h1>Report Archive</h1>
+
+<p>This section displays all the report regarding the leave application.</p>
+<center>
+<div>
+	<%= form_tag report_manager_panel_index_path,method: :get do %>
+		<p>Filter : <%= select_tag :search, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Filter Status','null']],selected:"null") %>
+			<%= submit_tag "Filter"%></p>
+	<% end %>
+</div>
+
+
+<% if !@report.nil? %>
+<div>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>ID</th>
+			<th>Report</th>
+			<th>Date of Update</th>
+		</tr>
+		<% @report.each do |r| %>
+			<tr>
+				<td><%= r.id %></td>
+				<td><%= r.report_name %></td>
+				<td><%= r.updated_at.strftime('%d/%m/%Y') %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>	
+<% end %>
+</center>
