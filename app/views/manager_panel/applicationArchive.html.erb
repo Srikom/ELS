@@ -1,0 +1,27 @@
+<h1>Leave Application Archive</h1>
+
+<p>This section displays all the leave application which has been reviewed before.</p>
+
+
+
+<div>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Department</th>
+			<th>Date Of Submission</th>
+			<th>Status</th>
+		</tr>
+		<% @reviewedApplication.each do |l| %>
+			<tr>
+				<td><%= link_to l.id, showApplication_manager_panel_path(l.id) %></td>
+				<td><%= l.staff_name %></td>
+				<td><%= l.department_name %></td>
+				<td><%= l.created_at.strftime('%d/%m/%Y') %></td>
+				<td><%= l.status %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>	
+

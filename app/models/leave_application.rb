@@ -3,6 +3,7 @@ class LeaveApplication < ActiveRecord::Base
 
   validates :start_date, :end_date, :reason, presence: true
   
+  scope :reviewedApplication, select("*").joins(:staff => :department).where("status = ? OR status = ?",'Rejected','Approved')
 
 
   belongs_to :staff
@@ -17,8 +18,6 @@ class LeaveApplication < ActiveRecord::Base
 
   def self.appDetails(application)
   	select("*,strftime('%d',end_date) - strftime('%d',start_date) AS date_diff").joins(:staff => :department).where(id:application)
-  end
-
- 
+  end 
 
 end
