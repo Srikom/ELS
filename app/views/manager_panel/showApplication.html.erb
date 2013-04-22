@@ -21,15 +21,15 @@
 		</tr>
 		<tr>
 			<td><b>Date of Start Leave :</b></td>
-			<td><%= l.start_date %></td>
+			<td><%= l.start_date.strftime('%d/%m/%Y') %></td>
 		</tr>
 		<tr>
 			<td><b>Date of End Leave :</b></td>
-			<td><%= l.end_date %></td>
+			<td><%= l.end_date.strftime('%d/%m/%Y') %></td>
 		</tr>
 		<tr>
 			<td><b>Total days of leave :</b></td>
-			<td><%= l.id %></td>
+			<td><%= l.date_diff %></td>
 		</tr>
 		<tr>
 			<td><b>Leave Balance :</b></td>
@@ -44,12 +44,14 @@
 			<td><%= l.comment %></td>
 		</tr>
 	</table>
-<% end %>
 	<div>
-		<%= form_for(@review, :url => {:controller => "manager_panel", :action => "updateReview"}) do |f| %>
-			<%= f.select :status, [['Approve','Approved By Manager'],['Reject','Rejected']] %>
-    <%= f.submit "Continue" %>
-<% end %>
+		<% if l.status == 'Pending'%>
+			<%= form_for(@review, :url => {:controller => "manager_panel", :action => "updateReview"}) do |f| %>
+				<%= f.select :status, [['Approve','Approved By Manager'],['Reject','Rejected']] %>
+	   		 	<%= f.submit "Continue" %>
+			<% end %>
+		<% end %>
 	</div>
+<% end %>
 </div>
 </center>

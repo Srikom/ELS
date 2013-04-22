@@ -16,11 +16,9 @@ class LeaveApplication < ActiveRecord::Base
   end
 
   def self.appDetails(application)
-  	select('*').joins(:staff => :department).where(id:application)
+  	select("*,strftime('%d',end_date) - strftime('%d',start_date) AS date_diff").joins(:staff => :department).where(id:application)
   end
 
-  def self.getTotalDaysOfLeave(application)
-    select("strftime('%d',end_date) - strftime('%d',start_date) AS date_diff").where(id:application)
-  end
+ 
 
 end
