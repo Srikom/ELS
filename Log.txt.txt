@@ -37,3 +37,12 @@ LOg
 - Successfully created the Staff,Manager,Management and Admin model by using devise plugin.
 - Created the login page for all users
 - Added some dummy users
+
+19 April 2013
+=============
+- Updated the manager_panel controller
+- All links are working
+
+22 April 2013
+=============
+- Solve the 'push' problem to the github repo that was faced by all team members.
