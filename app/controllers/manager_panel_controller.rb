@@ -49,6 +49,11 @@ class ManagerPanelController < ApplicationController
 
 	def showReport
 		@report = Report.find(params[:id])
+		@reportContent = Report.getReportContents(params[:id])
+		@leaveApproved = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {:status =>"Approved"}).count
+		@leaveRejected = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {:status =>"Rejected"}).count
+		@leaveUnprocessed = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {status:"Pending",status:"Approved By Manager",status:"Unsubmitted"}).count
+	
 	end
 
 end

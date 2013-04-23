@@ -1,9 +1,47 @@
-<h1>List of Leave Application for <%= @report.report_month %> <%= @report.report_year %></h1>
+<center>
+	<h1><%= @report.report_name %></h1>
+	<h4>as on: <%= Date.today.strftime('%d %B %Y') %></h4>
+
 
 <div>
+	<p>Amount of Applications : <%= @reportContent.count %> </p>
+</div>
+<div>
+	<p>Application Review Statistic For the Month </p>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>Approved</th>
+			<th>Rejected</th>
+			<th>Unprocessed</th>
+		</tr>
+		<tr>
+			<td><%= @leaveApproved %></td>
+			<td><%= @leaveRejected %></td>
+			<td><%= @leaveUnprocessed %></td>
+		</tr>
+	</table>
+</div>
+<br/>
+<div>
+	<p>List of Applicants for this month : </p>
 	<table size='100%' id='managerTable'>
 		<tr>
 			<th>ID</th>
+			<th>Name</th>
+			<th>Department</th>
+			<th>Application Status</th>
 		</tr>
+		<% @reportContent.each do |s| %>
+		<tr>
+			<td><%= s.id %></td>
+			<td><%= s.staff_name %></td>
+			<td><%= s.department_name %></td>
+			<td><%= s.status %></td>
+		</tr>
+		<% end %>
 	</table>
+</div>	
+</center>
+<div>
+	<p><span id='sub'>Submitted By : </span><span id='sig'>Signatures:</span></p>
 </div>	
