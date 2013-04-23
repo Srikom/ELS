@@ -157,3 +157,15 @@ th
 	border-radius: 10px;
 	background-color: #d8dff2;
 }
+
+#sub
+{
+	position: relative;
+	left: 200px;
+}
+
+#sig
+{
+	position: relative;
+	left: 600px;
+}
