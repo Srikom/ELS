@@ -40,7 +40,7 @@ class ManagerPanelController < ApplicationController
 	end
 
 	def report
-		@report = Report.all
+		@report = Report.filterReports(params[:month],params[:year])
 		@leaveApp = LeaveApplication.all
 		@leaveApp.each do |l| 
 			LeaveApplication.leaveApplicationReportEntry(l.start_date.strftime('%B'),l.start_date.strftime('%Y'),l.id)
@@ -50,9 +50,11 @@ class ManagerPanelController < ApplicationController
 	def showReport
 		@report = Report.find(params[:id])
 		@reportContent = Report.getReportContents(params[:id])
-		@leaveApproved = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {:status =>"Approved"}).count
-		@leaveRejected = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {:status =>"Rejected"}).count
-		@leaveUnprocessed = Report.joins(:LeaveApplication).where("reports.id = ? AND leave_applications.status = ? OR leave_applications.status = ? OR leave_applications.status = ?",params[:id],"Approved By Manager","Pending","Unsubmitted").count
+		@leaveApproved = Report.countStatus(params[:id],"Approved")
+		@leaveRejected = Report.countStatus(params[:id],"Rejected")
+		@leavePending = Report.countStatus(params[:id],"Pending")
+		@leaveApprovedByManager = Report.countStatus(params[:id],"Approved By Manager")
+		@leaveUnsubmitted = Report.countStatus(params[:id],"Not Submitted")
 	end
 
 	def show

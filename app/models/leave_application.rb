@@ -47,4 +47,5 @@ class LeaveApplication < ActiveRecord::Base
     end
   end
 
+  
 end

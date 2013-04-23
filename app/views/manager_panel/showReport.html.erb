@@ -12,12 +12,16 @@
 		<tr>
 			<th>Approved</th>
 			<th>Rejected</th>
-			<th>Unprocessed</th>
+			<th>Pending</th>
+			<th>Approved By Manager</th>
+			<th>Unsubmitted</th>
 		</tr>
 		<tr>
 			<td><%= @leaveApproved %></td>
 			<td><%= @leaveRejected %></td>
-			<td><%= @leaveUnprocessed %></td>
+			<td><%= @leavePending%></td>
+			<td><%= @leaveApprovedByManager%></td>
+			<td><%= @leaveUnsubmitted%></td>
 		</tr>
 	</table>
 </div>

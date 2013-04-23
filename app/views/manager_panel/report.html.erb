@@ -3,9 +3,9 @@
 <p>This section displays all the report regarding the leave application.</p>
 <center>
 <div>
-	<%= form_tag report_manager_panel_index_path,method: :get do %>
-		<p>Month : <%= select_tag :month, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Month','null']],selected:"null") %>
-			Year : <%= select_tag :year, options_for_select([['Approved By Manager','Approved By Manager'],['Reject','Rejected'],['Approved','Approved'],['Select Year','null']],selected:"null") %>
+	<%= form_tag report_manager_panel_index_path, method: :get do %>
+		<p>Month : <%= select_tag :month, options_for_select([['January','January'],['February','February'],['March','March'],['April','April'],['May','May'],['June','June'],['July','July'],['August','August'],['September','September'],['October','October'],['November','November'],['December','December'],['Select Month','null']],selected:"null") %>
+			Year : <%= select_tag :year, options_for_select([['2013','2013'],['Select Year','null']],selected:"null") %>
 			<%= submit_tag "Filter"%></p>
 	<% end %>
 </div>
