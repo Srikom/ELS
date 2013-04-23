@@ -20,16 +20,4 @@ class AdminPanelController < ApplicationController
 		@managements = Management.find(params[:id])
 	end
 
-/
-	def destroy
-    @staffs = Staff.find(params[:id])
-    @staffs.destroy
-    end
-*/
-
-	def newStaff
-
-	end
-
-
 end
