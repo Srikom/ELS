@@ -19,10 +19,7 @@ def show_application
  def profile
  	@leaveApplications= LeaveApplication.find_by_sql(%q{select id FROM staffs where staff_name="Eric Jerome"} )
  	@leaveApplications= LeaveApplication.find_by_sql(%q{select  department_name FROM departments where id="1"} )
- 	if params[:edit_profile] == "Edit profile"
- 		render :action => 'edit_profile'
- 	else params[:edit_password]=="Edit password"
- 		render :action =>'/passwords/new' 
+ 	
 end
  
  def edit_profile
@@ -33,7 +30,7 @@ end
 
 @leaveApplication= LeaveApplication.new
    
-end
+
 end
 end
 
