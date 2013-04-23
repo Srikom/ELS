@@ -31,7 +31,9 @@ ELS::Application.routes.draw do
   devise_for :admins
 
   devise_for :managements
-  devise_for :managers
+  devise_for :managers do
+    get 'managers', :to => 'manager_panel#show', :as => :manager_root
+  end
 
 
   devise_for :staffs
