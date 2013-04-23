@@ -3,29 +3,40 @@ class LeaveApplicationController < ApplicationController
 	before_filer :authenticate_staff!
 
 	def index
+	#@leaveApplication = LeaveApplication.appDetails(params[:id])
+		@leaveApplication = LeaveApplication.find(Select status,id,reason FROM leave_applications )
+		#@leaveApplications = LeaveApplication.all
 
 	end
 	 def show_application
-   @leaveApplication=LeaveApplication.find(params[:id])
+  		@leaveApplication=LeaveApplication.appDetails(params[:id])
+  		
  end
 	def view_profile
-		@leaveapplication = LeaveApplication.find(params[:id])
-		redirect_to view_profile_staff_panel_path(params[:id])
+		@leaveApplication = LeaveApplication.find(params[:id])
+		redirect_to view_profile_staff_panel_path
 	end
-	def show
-   		@leaveapplication = Zombie.find(params[:id])
-	def new
-		@leaveapplication=LeaveApplication.new
+	def archive
+  		@leaveApplication=LeaveApplication.Select status,id FROM leave_applications 
+  		
+ end
+ def edit
+    @leaveApplication = LeaveApplication.find(params[:id])
+  end
+ def new
+		@leaveApplication=LeaveApplication.new
 	end
 
 	def create
-		@leaveapplication=LeaveApplication.new(params[:leaveapplication])
-	if  @leaveapplication.save
-       
-      redirect_to new_leave_application_path,:notice=>"Your leaveapplication was saved"
+		@leaveApplication=LeaveApplication.new(params[:leaveapplication])
+	if  @leaveApplication.save
+        flash[:notice] = "Some text indicating it was created"
+      redirect_to _form_staff_panel_path,:notice=>"Your leave application was saved"
       
     else
+    	 flash[:notice] = "Some text indicating it was created"
       render "new"
 	end
 
+end
 end

@@ -1,3 +1,4 @@
+
 <% if flash[:alert] %>
 <p id="notice"><%= flash[:alert] %></p>
 <% end %>
@@ -16,5 +17,5 @@
         <%= text_area 'leave_application', 'reason' %>
       </div>
  
- <%= submit_tag 'Submit',:id => "submit_btn",:confirm => 'Are you sure?',:alert=>"Your submission form will be processed!"%>
+ <%= submit_tag 'Submit',:id => "submit_btn",:confirm => 'Are you sure?',:alert=>"Your submission form will be processed!",:action=>'Submit'%>
  <%end%>

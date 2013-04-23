@@ -6,7 +6,7 @@
 		<p>Staff ID:<%= %></p>
 		<p>Email:<%= current_staff.email %></p>
 		<p>Mobile no.:<%=  current_staff.staff_phone%></p>
-		<p>Department: </p>
+		<p>Department:<%=  %></p>
 		<p>Leave balance :<%= current_staff.leave_balance %></p>
 		<p><%= submit_tag 'Edit profile',:action =>'edit_profile' %></p>
 		<p><%= submit_tag 'Edit password',:action =>'edit_password' %></p>
