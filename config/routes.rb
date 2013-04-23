@@ -4,6 +4,8 @@ ELS::Application.routes.draw do
   #match 'view_profile', to: 'staff_panel#view_profile'
   get :show_application, on: :member
   get :archive, on: :member
+  get :profile,on: :member
+  put :edit_profile,on: :member
   end
   
   match '/index', :controller => "staff_panel", :action => "index"

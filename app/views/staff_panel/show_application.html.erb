@@ -24,11 +24,12 @@
 			<td><b>Comments :</b></td>
 			<td><%= l.comment%></td>
 		</tr>
-
-		<p><%= submit_tag 'Edit',:action =>'_form' %></p>
-		<p><%= submit_tag 'Delete',confirm: 'Are you sure?',method: :delete %></p>	
+		</table>
+		<p><%= submit_tag 'Edit',:action =>'_form' %></p></space>
+		<space><p><%= submit_tag 'Delete',confirm: 'Are you sure?',method: :delete %></p>	
 		<p><%= submit_tag 'Submit',:action =>'edit_password' %></p>	
-	</table>
+		<%= link_to 'Back', index_path %>
+	
 <% end %>
 </div>
 </center>
