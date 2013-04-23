@@ -32,9 +32,10 @@ class LeaveApplication < ActiveRecord::Base
 
   def self.leaveApplicationReportEntry(month,year,application)
     if Report.getReport(month,year).exists?
+      report = Report.getReport(month,year) 
       lApp = LeaveApplication.find(application)
-      lApp.update_attributes(report_id: Report.getReport(month,year))
-    elsif !Report.getReport(month,year).exists?
+      report.each {|r| lApp.update_attributes(report_id:r.id)}
+    elsif 
       lAppReport = Report.new
       lAppReport.report_month = "#{month} Report #{year}"
       lAppReport.report_month = month

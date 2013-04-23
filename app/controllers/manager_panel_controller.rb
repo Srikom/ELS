@@ -48,7 +48,7 @@ class ManagerPanelController < ApplicationController
 	end
 
 	def showReport
-		
+		@report = Report.find(params[:id])
 	end
 
 end
