@@ -1,6 +1,6 @@
 class ManagerPanelController < ApplicationController
 
-	before_filter :authenticate_manager!
+	before_filter :authenticate_manager!, :report
 
 	def index
 		@leaveApplication = LeaveApplication.myDepartment(current_manager)
@@ -52,43 +52,11 @@ class ManagerPanelController < ApplicationController
 		@reportContent = Report.getReportContents(params[:id])
 		@leaveApproved = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {:status =>"Approved"}).count
 		@leaveRejected = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {:status =>"Rejected"}).count
-		@leaveUnprocessed = Report.joins(:LeaveApplication).where(id:params[:id],:Leave_applications => {status:"Pending",status:"Approved By Manager",status:"Unsubmitted"}).count
+		@leaveUnprocessed = Report.joins(:LeaveApplication).where("reports.id = ? AND leave_applications.status = ? OR leave_applications.status = ? OR leave_applications.status = ?",params[:id],"Approved By Manager","Pending","Unsubmitted").count
 	end
 
 	def show
 		@profile = Manager.select('*').joins(:department).where(id:current_manager)
-	end
-
-	def edit
-		@profile = Manager.find(current_manager)
-	end
-
-	def update
-		@profile = Manager.find(current_manager)
-
-		if @profile.update_attributes(params[:profile])
-			flash[:notice] = "Profile has been changed Successfully!"
-			redirect_to manager_panel_path
-		else
-			flash[:alert] = "Unable to edit profile!"
-			render 'edit'	
-		end
-	end
-
-	def editPassword
-		@profile = Manager.find(current_manager)
-	end
-
-	def updatePassword
-		@profile = Manager.find(current_manager)
-
-		if @profile.update_attributes(password:params[:password])
-			flash[:notice] = "Password has been changed Successfully!"
-			redirect_to manager_panel_path
-		else
-			flash[:alert] = "Unable to edit password!"
-			render 'editPassword'	
-		end
 	end
 
 end

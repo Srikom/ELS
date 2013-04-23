@@ -27,7 +27,7 @@ ELS::Application.routes.draw do
     get :updatePassword, on: :member
   end
   resources :management_panel
-  resources :managers
+ 
   devise_for :admins
 
   devise_for :managements
