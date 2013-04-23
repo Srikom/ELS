@@ -1,0 +1,14 @@
+<h2>Manager Profile</h2>
+<center>
+<div id='staffApplication'>
+
+	<% @profile.each do |p| %>
+	<div><b>Name :</b> <%= p.manager_name %></div>
+	<div><b>Manager ID :</b> <%= p.id %></div>
+	<div><b>Mobile No :</b> <%= p.manager_phone %></div>
+	<div><b>Department :</b> <%= p.department_name %></div>
+	<% end %>
+	<%= button_to "Edit Profile" , edit_manager_panel_path %> 
+	<%= button_to "Edit Password" , edit_manager_panel_path %>
+</div>
+</center>

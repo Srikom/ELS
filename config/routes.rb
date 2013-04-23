@@ -21,6 +21,8 @@ ELS::Application.routes.draw do
     get :applicationArchive, on: :collection
     get :report, on: :collection
     get :showReport, on: :member
+    get :editPassword, on: :member
+    get :updatePassword, on: :member
   end
   resources :management_panel
 
