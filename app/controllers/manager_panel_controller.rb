@@ -60,11 +60,19 @@ class ManagerPanelController < ApplicationController
 	end
 
 	def edit
-		@profile = Manager.select('*').joins(:department).where(id:current_manager)
+		@profile = Manager.find(current_manager)
 	end
 
 	def update
-		@profile = Manager.select('*').joins(:department).where(id:current_manager)
+		@profile = Manager.find(current_manager)
+
+		if @profile.update_attributes(params[:profile])
+			flash[:notice] = "Profile has been changed Successfully!"
+			redirect_to manager_panel_path
+		else
+			flash[:alert] = "Unable to edit profile!"
+			render 'edit'	
+		end
 	end
 
 	def editPassword

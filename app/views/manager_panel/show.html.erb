@@ -8,7 +8,7 @@
 	<div><b>Mobile No :</b> <%= p.manager_phone %></div>
 	<div><b>Department :</b> <%= p.department_name %></div>
 	<% end %>
-	<%= button_to "Edit Profile" , action: "edit" %> 
-	<%= button_to "Edit Password" , edit_manager_panel_path %>
+	<%= button_to "Edit Profile" , edit_manager_panel_path(current_manager), method: :get %> 
+	<%= button_to "Edit Password" , editPassword_manager_panel_path(current_manager),method: :get %>
 </div>
 </center>
