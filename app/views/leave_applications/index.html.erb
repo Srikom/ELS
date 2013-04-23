@@ -1,0 +1,26 @@
+<%= form_for(@leave_application) do |f| %>
+  <% if @leave_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_application.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @leave_application.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<p>
+	<%= f.label:start_date%>
+	<%=f.text_field:start_date%>
+	</p>
+	<p><%= f.label:end_date%>
+	<%=f.text_field:end_date%></p>
+  <p>
+  <%= f.label:reason%>
+  <%=f.text_field:reason%>
+  </p>
+  <div class="actions">
+    <%= f.submit "Submit"%>
+  </div>
+<% end %>
