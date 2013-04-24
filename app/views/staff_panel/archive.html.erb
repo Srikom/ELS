@@ -1,17 +1,22 @@
+<center>
 <table border="1">
 	<tr>
 		<h1>Submitted applications</h1>
 		<th>No</th>
 			<th>ID</th>
-			<th>Date submitted</th>
+			<th>Reason</th>
 			<th>Status</th>
+			<th>Date submitted</th>
 		</tr>
+		<% @leaveApplications.each do |leaveApplication|  %>
 		<tr>
 			<th></th>
-			<th></th>
-			<th></th>
+			<td><%=leaveApplication.id %></td>
+			<td><%=leaveApplication.reason %></td>
+			<td><%=leaveApplication.status %></td>
 			<th></th>
 		</tr>
 		
-
+<%end%>
 	</table>
+	</center>

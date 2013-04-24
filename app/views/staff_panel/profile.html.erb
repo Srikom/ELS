@@ -1,20 +1,24 @@
 
 <table border="1">
+	<% @leaveApplications.each do |leaveApplication|  %>
 	<tr>
 		<tr></tr>
 		Name:<%= current_staff.staff_name %>
-		<p>Staff ID:<%= %></p>
+		<p>Staff ID:<%=current_staff.id %></p>
 		<p>Email:<%= current_staff.email %></p>
 		<p>Mobile no.:<%=  current_staff.staff_phone%></p>
-		<p>Department:<%=  %></p>
+		<p>Department:<%=leaveApplication.department_name  %></p>
 		<p>Leave balance :<%= current_staff.leave_balance %></p>
-		<p><%= submit_tag 'Edit profile',:action =>'edit_profile' %></p>
-		<p><%= submit_tag 'Edit password',:action =>'edit_password' %></p>
-        <p><%= link_to 'Back',:back %></p>
+		
+		<p><%= submit_tag 'Edit profile',:name => 'edit_profile' %></p>
+		
+		<p><%= submit_tag 'Edit password',:name =>'edit_password' %></p>
+        
 		
 	</tr>
 	<tr>
 	</tr>
+	<%end%>
 	</table>
 
 

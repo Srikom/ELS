@@ -1,11 +1,20 @@
-<h1>Registeration</h1>
+<center>
 
-<br>
-<%= link_to 'Back', admin_panel_index_path %>
+<h1>Registration</h1>
+<h3>Select Role</h3>
+
+
+<select id="mySelect" onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}"> 
+
+	<option value="http://localhost:3000/admin_panel/new">Please Select</option>
+	<option value="http://localhost:3000/staffs/sign_up">Employee</option> 
+	<option value="http://localhost:3000/managers/sign_up">Manager</option> 
+	<option value="http://localhost:3000/managements/sign_up">Management</option> 
+
+</select>
+
 <br><br>
 
-<%= link_to 'Employee' , new_staff_registration_path %> |
-<%= link_to 'Manager' , new_manager_registration_path %> | 
-<%= link_to 'Management' , new_management_registration_path %>
+<%= link_to 'Back', admin_panel_index_path %>
 
-<h2>Under Construction</h2>
+</center>

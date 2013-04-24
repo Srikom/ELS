@@ -1,25 +1,23 @@
 <h1>Welcome to the staffs panel</h1>
 <p>Welcome ,<b><%= current_staff.staff_name %></b>.Page is still under construction</p>
-
+<center>
 <th>
 	</th>
 	<table border='1'>
 	<tr>
-		<h1>Unsubmitted applications</h1>
+		<h2>Unsubmitted applications</h2>
 		<th>No</th>
 			<th>ID</th>
 			<th>Reason</th>
 			<th>Status</th>
 		</tr>
 		<% @leaveApplications.each do |leaveApplication|  %>
-		
-			<tr>
-			<th><%=leaveApplication.reason %></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			</tr>
-	
-	
-<%end%>
+		<tr>
+			<td></td>
+			<td><%=link_to leaveApplication.id, show_application_staff_panel_path(leaveApplication.id) %></td>
+			<td><%=leaveApplication.reason %></td>
+			<th><%=leaveApplication.status %></th>
+		</tr>
+	<%end%>
 	</table>
+	</center>

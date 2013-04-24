@@ -31,4 +31,7 @@
 </tr>
 </table>
 </center>
+<br><br>
+<%= link_to "Back" , admin_panel_index_path %> | 
+<%= link_to "Remove User", {:controller => :manager_panel, :action => 'destroy' , :id => @managers.id }, :method => :delete , :confirm => "Are you sure?" %>
 
