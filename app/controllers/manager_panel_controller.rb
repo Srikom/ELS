@@ -55,6 +55,16 @@ class ManagerPanelController < ApplicationController
 		@leavePending = Report.countStatus(params[:id],"Pending")
 		@leaveApprovedByManager = Report.countStatus(params[:id],"Approved By Manager")
 		@leaveUnsubmitted = Report.countStatus(params[:id],"Not Submitted")
+
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = ReportPdf.new(@report,@reportContent,@leaveApproved,@leaveRejected,@leavePending,@leaveApprovedByManager,@leaveUnsubmitted)
+				send_data pdf.render, filename:"report_#{@report.report_name}.pdf",
+									 type:"application/pdf",
+									 disposition:"inline"
+			end
+		end
 	end
 
 	def show

@@ -169,3 +169,25 @@ th
 	position: relative;
 	left: 600px;
 }
+
+@media print
+{
+	body
+	{
+		background-color: #fff;
+	}
+
+	#wrapper
+	{
+		width:auto;
+		margin: 0px;
+		padding: 0px;
+		border: none;
+	}
+
+	#header,#footer
+	{
+		display: none;
+	}
+
+}

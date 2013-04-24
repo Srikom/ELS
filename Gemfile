@@ -27,7 +27,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'prawn', git: 'https://github.com/prawnpdf/prawn.git'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
