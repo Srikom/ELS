@@ -33,4 +33,5 @@
 </table>
 </center>
 <br><br>
-<%= link_to "Back" , admin_panel_index_path %>
+<%= link_to "Back" , admin_panel_index_path %> | 
+<%= link_to "Delete", {:controller => :staff_panel, :action => 'destroy' , :id => @staffs.id }, :method => :delete , :confirm => "Are you sure?" %>

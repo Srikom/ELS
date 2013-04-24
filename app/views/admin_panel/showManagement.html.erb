@@ -29,4 +29,5 @@
 </table>
 </center>
 <br><br>
-<%= link_to "Back" , admin_panel_index_path %>
+<%= link_to "Back" , admin_panel_index_path %> | 
+<%= link_to "Delete", {:controller => :management_panel, :action => 'destroy' , :id => @managements.id }, :method => :delete , :confirm => "Are you sure?" %>
