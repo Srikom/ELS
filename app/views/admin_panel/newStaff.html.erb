@@ -1,0 +1,38 @@
+<h1>Create Staff</h1>
+<%= form_for(@staffs) do |f| %>
+
+<div class="field">
+<%= f.label :Name %>
+<%= f.text_field :name %>
+</div>
+
+<div class="field">
+<%= f.label :Password %>
+<%= f.text_field :password %>
+</div>
+
+<div class="field">
+<%= f.label :Password_Confirmation %>
+<%= f.text_field :password_confirmation %>
+</div>
+
+<div class="field">
+<%= f.label :Department %>
+<%= f.text_field :department_id%>
+</div>
+
+<div class="field">
+<%= f.label :Staff_phone %>
+<%= f.text_field :staff_phone %>
+</div>
+
+<div class="field">
+<%= f.label :Email %>
+<%= f.text_field :email %>
+</div>
+
+<div class="action">
+<%= f.submit 'Submit' %>
+</div>
+
+<% end %>
