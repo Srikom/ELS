@@ -1,0 +1,9 @@
+<h2>Management Profile</h2>
+<center>
+<div id='staffApplication'>
+	<div><b>Name :</b> <%= @profile.management_name %></div>
+	<div><b>Manager ID :</b> <%= @profile.id %></div>
+	<div><b>Mobile No :</b> <%= @profile.management_phone %></div>
+	<%= button_to "Edit Profile" , edit_management_registration_path(current_management),method: :get %> 
+</div>
+</center>
