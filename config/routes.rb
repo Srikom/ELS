@@ -12,7 +12,11 @@ ELS::Application.routes.draw do
  match '/profile', :controller => "staff_panel", :action => "profile"
  match '/_form', :controller => "staff_panel", :action => "_form"
  match '/archive', :controller => "staff_panel", :action => "archive"
-
+  
+  resources :destroy_staff
+  resources :destroy_manager
+  resources :destroy_management
+  
   resources :admin_panel do 
     get :showManager, on: :member
     get :showStaff, on: :member
