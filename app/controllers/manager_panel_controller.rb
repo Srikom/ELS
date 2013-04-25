@@ -25,17 +25,18 @@ class ManagerPanelController < ApplicationController
 		else
 			flash[:alert] = "Failed to Update Status"
 		end
+		flash.discard
 		redirect_to showApplication_manager_panel_path(params[:id])
 	end
 
 	def applicationArchive
-
 		if params[:search] == "null"
 			@reviewedApplication = LeaveApplication.reviewedApplication(current_manager,current_manager.department_id)
 			flash[:alert] = "Please select one of the filter status options!"
 		else
 			@reviewedApplication = LeaveApplication.search(params[:search],current_manager,current_manager.department_id)
 		end
+		flash.discard
 	end
 
 	def report
