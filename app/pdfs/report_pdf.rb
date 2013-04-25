@@ -20,25 +20,25 @@ class ReportPdf < Prawn::Document
 		move_down 5
 		text "as on #{Date.today.strftime('%d %B %Y')}",style: :bold,:align => :center
 		move_down 20
-		text "Total number of applicants for this Month : #{@content.count}",:align => :center
+		text "Total number of applicants for this Month : #{@content.count}"
 		move_down 10
 	end
 
 	def table_data
-		text "Application Review Statistic For the Month",:align => :center
-		move_down 30
+		text "Application Review Statistic For the Month : "
+		move_down 10
 		table datas do
 			row(0).font_style = :bold
 			columns(0..4).align = :right
 			self.row_colors = ["DDDDDD","FFFFFF"]
 			self.header = true
 		end
-		move_down 10
+		move_down 30
 	end
 
 	def table_app
-		text "List of Applicants for this month :",:align => :center
-		move_down 3
+		text "List of Applicants for this month :"
+		move_down 10
 		table applicants
 	end
 
@@ -55,8 +55,9 @@ class ReportPdf < Prawn::Document
 	end
 
 	def footer_sig
-		move_down 10
+		move_down 200
 		text "Submitted BY:",style: :bold,:align => :left
+		move_up 15
 		text "Signatures:",style: :bold,:align => :right
 	end
 
