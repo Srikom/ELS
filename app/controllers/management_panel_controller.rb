@@ -28,6 +28,17 @@ class ManagementPanelController < ApplicationController
 		redirect_to showApplication_management_panel_path(params[:id])
 	end
 
+	def applicationArchive
+
+		if params[:search] == "null"
+			@reviewedApplication = LeaveApplication.reviewedApplicationManagement(current_management)
+			flash[:alert] = "Please select one of the filter status options!"
+		else
+			@reviewedApplication = LeaveApplication.searchManagement(params[:search],current_management)
+		end
+	end
+
+
 	def destroy 
 		@managements = Management.find(params[:id])	
  		@managements.destroy

@@ -35,6 +35,18 @@ class LeaveApplication < ActiveRecord::Base
     end
   end
 
+  def self.reviewedApplicationManagement(management)
+      select("leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status").joins(:staff => :department).where("status = ? OR status = ? AND management_id = ?",'Rejected','Approved',management)
+  end
+
+  def self.searchManagement(search,management)
+    if search
+      select("leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status").joins(:staff => :department).where("status = ? AND management_id = ?",search,management)
+    else
+      reviewedApplicationManagement(management)
+    end
+  end
+
   def self.leaveApplicationReportEntry(month,year,application)
     if Report.getReport(month,year).exists?
       report = Report.getReport(month,year) 
