@@ -32,7 +32,7 @@
 							<li><%= link_to 'Application Archive',applicationArchive_manager_panel_index_path %> |</li>
 							<li><%= link_to 'Report', report_manager_panel_index_path %> |</li>
 							<li><%= link_to 'View Profile', manager_panel_path(current_manager) %> |</li>
-							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
+							<li><%= link_to 'Logout', destroy_manager_session_path, method: :delete %></li>
 						</ul>
 						<% elsif management_signed_in? %>
 						<ul>
@@ -40,7 +40,7 @@
 							<li><%= link_to 'Application Archive',applicationArchive_management_panel_index_path %> |</li>
 							<li><%= link_to 'Report', reportManagement_management_panel_index_path %> |</li>
 							<li><%= link_to 'View Profile', management_panel_path(current_management) %> |</li>
-							<li><%= link_to 'Logout', destroy_staff_session_path, method: :delete %></li>
+							<li><%= link_to 'Logout', destroy_management_session_path, method: :delete %></li>
 						</ul>
 					<% end %>
 					<div class='clearfix'></div>
