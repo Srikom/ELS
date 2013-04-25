@@ -3,12 +3,17 @@ class LeaveApplication < ActiveRecord::Base
 
   validates :start_date, :end_date, :reason, presence: true
   
+  
 
   belongs_to :staff
   belongs_to :manager
   belongs_to :management
   belongs_to :report 
 
+
+  def self.managementLeave(management)
+    select('leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status').joins(:staff => :department).where(management_id:management,status:"Approved By Manager")
+  end
 
   def self.myDepartment(manager)
   	select('leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status').joins(:staff => :department).where(manager_id:manager)

@@ -28,7 +28,10 @@ ELS::Application.routes.draw do
     get :editPassword, on: :member
     get :updatePassword, on: :member
   end
-  resources :management_panel
+  resources :management_panel do
+    get :showApplication, on: :member
+    put :updateReview, on: :member
+  end
  
   devise_for :admins
 

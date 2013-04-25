@@ -9,7 +9,6 @@ class ManagerPanelController < ApplicationController
 	def showApplication
 		@leaveApplication = LeaveApplication.appDetails(params[:id])
 		@review = LeaveApplication.find(params[:id])
-
 	end 
 
 	def updateReview

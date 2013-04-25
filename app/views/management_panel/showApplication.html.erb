@@ -45,9 +45,9 @@
 		</tr>
 	</table>
 	<div>
-		<% if l.status == 'Pending'%>
-			<%= form_for(@review, :url => {:controller => "manager_panel", :action => "updateReview"}) do |f| %>
-				<%= f.select :status, [['Approve','Approved By Manager'],['Reject','Rejected']] %>
+		<% if l.status == 'Approved By Manager'%>
+			<%= form_for(@review, :url => {:controller => "management_panel", :action => "updateReview"}) do |f| %>
+				<%= f.select :status, [['Approve','Approved'],['Reject','Rejected']] %>
 	   		 	<%= f.submit "Update Review Status" %>
 			<% end %>
 		<% end %>
