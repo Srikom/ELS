@@ -1,6 +1,6 @@
 class ManagerPanelController < ApplicationController
 
-	before_filter :authenticate_manager!, :report
+	skip_before_filter :authenticate_manager!, :report , :only => :destroy 
 
 	def index
 		@leaveApplication = LeaveApplication.myDepartment(current_manager)

@@ -1,6 +1,6 @@
 class StaffPanelController < ApplicationController
 
-	before_filter :authenticate_staff!
+	skip_before_filter :authenticate_staff! , :only => :destroy 
 
 	def index
 		#@leaveApplication = LeaveApplication.appDetails(params[:id])
