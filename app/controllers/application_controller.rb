@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
     		end
 	end
 
-	def after_sign_out_path_for(resource_or_scope)
-            new_staff_session_path
+	private 
+
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
   end
-  
 end
