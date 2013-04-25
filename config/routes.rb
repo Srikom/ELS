@@ -21,6 +21,9 @@ ELS::Application.routes.draw do
     get :showManager, on: :member
     get :showStaff, on: :member
     get :showManagement, on: :member
+    delete :destroyStaff, on: :member
+    delete :destroyManager, on: :member
+    delete :destroyManagement, on: :member
   end
   
   resources :manager_panel do
