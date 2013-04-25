@@ -1,0 +1,52 @@
+<center>
+	<h1><%= @report.report_name %></h1>
+	<h4>as on: <%= Date.today.strftime('%d %B %Y') %></h4>
+
+
+<div>
+	<p>Amount of Applications : <%= @reportContent.count %> </p>
+</div>
+<div>
+	<p>Application Review Statistic For the Month </p>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>Approved</th>
+			<th>Rejected</th>
+			<th>Pending</th>
+			<th>Approved By Manager</th>
+			<th>Unsubmitted</th>
+		</tr>
+		<tr>
+			<td><%= @leaveApproved %></td>
+			<td><%= @leaveRejected %></td>
+			<td><%= @leavePending%></td>
+			<td><%= @leaveApprovedByManager%></td>
+			<td><%= @leaveUnsubmitted%></td>
+		</tr>
+	</table>
+</div>
+<br/>
+<div>
+	<p>List of Applicants for this month : </p>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Department</th>
+			<th>Application Status</th>
+		</tr>
+		<% @reportContent.each do |s| %>
+		<tr>
+			<td><%= s.id %></td>
+			<td><%= s.staff_name %></td>
+			<td><%= s.department_name %></td>
+			<td><%= s.status %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>	
+</center>
+<div>
+	<p><span id='sub'>Submitted By : </span><span id='sig'>Signatures:</span></p>
+</div>	
+<%= link_to "Download PDF", showReportManagement_management_panel_path(@report.id, format:"pdf")%>
