@@ -31,6 +31,7 @@ ELS::Application.routes.draw do
   resources :management_panel do
     get :showApplication, on: :member
     put :updateReview, on: :member
+    get :applicationArchive, on: :collection
   end
  
   devise_for :admins
