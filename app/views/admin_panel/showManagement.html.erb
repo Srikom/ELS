@@ -30,4 +30,4 @@
 </center>
 <br><br>
 <%= link_to "Back" , admin_panel_index_path %> | 
-<%= link_to "Remove User", {:controller => :management_panel, :action => 'destroy' , :id => @managements.id }, :method => :delete , :confirm => "Are you sure?" %>
+<%= link_to "Remove User", {:controller => :destroy_management, :action => 'destroy' , :id => @managements.id }, :method => :delete , :confirm => "Are you sure?" %>
