@@ -75,4 +75,8 @@ class ManagementPanelController < ApplicationController
  		redirect_to admin_panel_index_path
 	end
 
+	def show
+		@profile = Management.find(current_management)
+	end
+
 end
