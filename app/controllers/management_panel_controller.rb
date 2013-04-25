@@ -1,6 +1,6 @@
 class ManagementPanelController < ApplicationController
 
-	before_filter :authenticate_management!, :reportManagement
+	skip_before_filter :authenticate_management!, :reportManagement , :only => :destroy 
 
 	def index
 		@leaveApplication = LeaveApplication.managementLeave(current_management)
