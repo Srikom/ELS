@@ -1,6 +1,6 @@
 class ManagerPanelController < ApplicationController
 
-	skip_before_filter :authenticate_manager!, :report , :only => :destroy 
+	before_filter :authenticate_manager!, :report 
 
 	def index
 		@leaveApplication = LeaveApplication.myDepartment(current_manager)
@@ -68,14 +68,6 @@ class ManagerPanelController < ApplicationController
 
 	def show
 		@profile = Manager.select('*').joins(:department).where(id:current_manager)
-	end
-
-	def destroy 
-		@managers = Manager.find(params[:id])
-		@managers.destroy
-
-		flash[:notice] = "User has been deleted"
- 		redirect_to admin_panel_index_path
 	end
 
 end

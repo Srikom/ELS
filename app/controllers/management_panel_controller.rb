@@ -1,6 +1,6 @@
 class ManagementPanelController < ApplicationController
 
-	skip_before_filter :authenticate_management!, :reportManagement , :only => :destroy 
+	before_filter :authenticate_management!, :reportManagement 
 
 	def index
 		@leaveApplication = LeaveApplication.managementLeave(current_management)
@@ -64,15 +64,6 @@ class ManagementPanelController < ApplicationController
 									 disposition:"inline"
 			end
 		end
-	end
-
-
-	def destroy 
-		@managements = Management.find(params[:id])	
- 		@managements.destroy
-
- 		flash[:notice] = "User has been deleted"
- 		redirect_to admin_panel_index_path
 	end
 
 	def show
