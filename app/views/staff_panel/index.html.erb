@@ -1,23 +1,27 @@
 <h1>Welcome to the staffs panel</h1>
 <p>Welcome ,<b><%= current_staff.staff_name %></b>.Page is still under construction</p>
 <center>
-<th>
-	</th>
-	<table border='1'>
-	<tr>
-		<h2>Unsubmitted applications</h2>
-		<th>No</th>
-			<th>ID</th>
-			<th>Reason</th>
-			<th>Status</th>
-		</tr>
-		<% @leaveApplications.each do |leaveApplication|  %>
+<div>
+	<%= form_tag staff_panel_index_path, method: :get do %>
+		<p>Filter : <%= select_tag :search, options_for_select([['Not Submitted','Not Submitted'],['Pending','Pending'],['Approved By Manager','Approved By Manager'],['Select Filter Status','null']],selected:"null") %>
+			<%= submit_tag "Filter"%></p>
+	<% end %>
+	</div>
+<div>
+	<h2>Applications Listings</h2>
+	<table size='100%' id='managerTable'>
 		<tr>
-			<td></td>
-			<td><%=link_to leaveApplication.id, show_application_staff_panel_path(leaveApplication.id) %></td>
-			<td><%=leaveApplication.reason %></td>
-			<th><%=leaveApplication.status %></th>
+				<th>ID</th>
+				<th>Reason</th>
+				<th>Status</th>
 		</tr>
-	<%end%>
+			<% @leaveApplications.each do |leaveApplication|  %>
+			<tr>
+				<td><%=link_to leaveApplication.id, show_application_staff_panel_path(leaveApplication.id) %></td>
+				<td><%=leaveApplication.reason %></td>
+				<td><%=leaveApplication.status %></td>
+			</tr>
+		<%end%>
 	</table>
-	</center>
+</div>
+</center>
