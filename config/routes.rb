@@ -1,18 +1,21 @@
 ELS::Application.routes.draw do
 
   resources :staff_panel do
-  #match 'view_profile', to: 'staff_panel#view_profile'
-  get :show_application, on: :member
-  get :archive, on: :member
-  get :profile,on: :member
-  put :edit_profile,on: :member
+    get :show_application, on: :member
+    get :archive, on: :member
+    get :profile,on: :member
+    get :new_application, on: :member
+    post :create_application, on: :member
+    get :edit_application, on: :member
+    post :update_application, on: :member
+    put :edit_profile,on: :member
+    get :archive_application, on: :collection
+    post :submit_application, on: :member
+    post :destroy_application, on: :member
   end
   
   match '/index', :controller => "staff_panel", :action => "index"
- match '/profile', :controller => "staff_panel", :action => "profile"
- match '/_form', :controller => "staff_panel", :action => "_form"
- match '/archive', :controller => "staff_panel", :action => "archive"
-  
+
   resources :admin_panel do 
     get :showManager, on: :member
     get :showStaff, on: :member

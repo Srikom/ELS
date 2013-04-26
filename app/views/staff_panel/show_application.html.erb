@@ -9,11 +9,11 @@
 		</tr> 
 		<tr>
 			<td><b>Date of Start Leave :</b></td>
-			<td><%= l.start_date %></td>
+			<td><%= l.start_date.strftime('%d/%m/%Y') %></td>
 		</tr>
 		<tr>
 			<td><b>Date of End Leave :</b></td>
-			<td><%= l.end_date %></td>
+			<td><%= l.end_date.strftime('%d/%m/%Y') %></td>
 		</tr>
 		<tr>
 			<td><b>Application Status :</b></td>
@@ -25,9 +25,9 @@
 			<td><%= l.comment%></td>
 		</tr>
 		</table>
-		<p><%= submit_tag 'Edit',:action =>'_form' %></p></space>
-		<space><p><%= submit_tag 'Delete',confirm: 'Are you sure?',method: :delete %></p>	
-		<p><%= submit_tag 'Submit',:action =>'edit_password' %></p>	
+		<p><%= button_to 'Edit',edit_application_staff_panel_path(l.id) %></p></space>
+		<space><p><%= button_to 'Delete',destroy_application_staff_panel_path(l.id),confirm: 'Are you sure?',method: :delete %></p>	
+		<p><%= button_to 'Submit',submit_application_staff_panel_path(l.id) %></p>	
 		<%= link_to 'Back', index_path %>
 	
 <% end %>

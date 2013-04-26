@@ -31,7 +31,7 @@ class LeaveApplication < ActiveRecord::Base
   end
 
   def self.appDetails(application)
-  	select("*,(julianday(end_date)-julianday(start_date)) AS date_diff").joins(:staff => :department).where(id:application)
+  	select("*,(julianday(end_date)-julianday(start_date)) AS date_diff").where(id:application)
   end 
 
   def self.reviewedApplication(manager,department)
