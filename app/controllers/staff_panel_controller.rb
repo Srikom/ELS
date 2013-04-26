@@ -3,7 +3,13 @@ class StaffPanelController < ApplicationController
 	before_filter :authenticate_staff! 
 
 	def index
-		@leaveApplications= LeaveApplication.find_by_sql(%q{Select status,id,reason FROM leave_applications where staff_id="1"})
+		if params[:search] == "null"
+			@leaveApplications = LeaveApplication.processStaffApplication(current_staff)
+			flash[:alert] = "Please select one of the filter status options!"
+		else
+			@leaveApplications = LeaveApplication.searchStaffApplications(params[:search],current_staff)
+		end
+		flash.discard
 	end
 
 	def show_application
