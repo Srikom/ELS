@@ -10,6 +10,17 @@ class LeaveApplication < ActiveRecord::Base
   belongs_to :management
   belongs_to :report 
 
+  def self.processStaffApplication(sid)
+    select("status,id,reason").where("staff_id = ? AND status = 'Pending' OR status = 'Not Submitted'",sid)
+  end
+
+  def self.searchStaffApplications(search,staff)
+    if search
+      select("status,id,reason").where("status = ? AND staff_id = ?",search,staff)
+    else
+      processStaffApplication(staff)
+    end
+  end
 
   def self.managementLeave(management)
     select('leave_applications.id,staff_id,staff_name,department_name,leave_applications.created_at,status').joins(:staff => :department).where(management_id:management,status:"Approved By Manager")
