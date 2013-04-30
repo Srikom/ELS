@@ -1,0 +1,22 @@
+<h3>Application Archive</h3>
+
+<center>
+<div>
+	<table size='100%' id='managerTable'>
+		<tr>
+			<th>ID</th>
+			<th>Department</th>
+			<th>Date Of Submission</th>
+			<th>Status</th>
+		</tr>
+		<% @leaveApplications.each do |leaveApplication|  %>
+			<tr>
+				<td><%= link_to leaveApplication.id, show_application_staff_panel_path(leaveApplication.id) %></td>
+				<td></td>
+				<td></td>
+				<td><%= leaveApplication.status %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+</center>

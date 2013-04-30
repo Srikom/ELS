@@ -46,12 +46,12 @@ class StaffPanelController < ApplicationController
 
  	def archive_application
 		if params[:search] == "null"
-			@reviewedApplication = LeaveApplication.reviewedApplication(current_manager,current_manager.department_id)
+			@reviewedApplication = LeaveApplication.reviewedApplication(current_staff,current_staff.department_id)
 			flash[:alert] = "Please select one of the filter status options!"
 		else
-			@reviewedApplication = LeaveApplication.search(params[:search],current_manager,current_manager.department_id)
+			@reviewedApplication = LeaveApplication.search(params[:search],current_staff,current_staff.department_id)
 		end
-		@leaveApplications= LeaveApplication.find_by_sql(%q{Select status,id,reason FROM leave_applications where staff_id="1"})
+		@leaveApplications= LeaveApplication.find_by_sql(%q{Select status,id,reason FROM leave_applications where staff_id="1" AND status="Approved"})
 		flash.discard
 	end
 
